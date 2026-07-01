@@ -1,0 +1,369 @@
+:root {
+  --primary: #1f5f78;
+  --primary-dark: #133f54;
+  --accent: #57b8d8;
+  --text: #15313f;
+  --muted: #5d7280;
+  --background: #f7fbfd;
+  --white: #ffffff;
+  --shadow: 0 20px 45px rgba(17, 61, 84, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  transition: all 0.3s ease;
+  color: var(--white);
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(17, 61, 84, 0.08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 5rem 1.5rem 3rem;
+  background:
+    linear-gradient(90deg, rgba(10, 37, 56, 0.8), rgba(14, 63, 88, 0.55)),
+    url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80') center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 25, 0.2), rgba(4, 12, 25, 0.35));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  color: var(--white);
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.hero-copy {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 650px;
+  margin: 0 auto 1.8rem;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text);
+  box-shadow: 0 10px 25px rgba(87, 184, 216, 0.25);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section {
+  padding: 5rem 1.5rem;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.intro-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card,
+.service-card,
+.schedule-card {
+  background: var(--white);
+  border-radius: 1.25rem;
+  padding: 1.35rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3,
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.schedule {
+  padding-top: 1rem;
+}
+
+.schedule-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: start;
+}
+
+.schedule-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.schedule-item {
+  background: #f2f8fb;
+  border-left: 4px solid var(--accent);
+  padding: 0.95rem 1rem;
+  border-radius: 0.8rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.doctor-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.doctor-card {
+  background: var(--white);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.doctor-role {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.doctor-hours {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 3rem 1.5rem 3.5rem;
+  background: linear-gradient(135deg, #0f2d3d, #163b4e);
+  color: rgba(255, 255, 255, 0.92);
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-footer > div {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.site-footer h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  font-size: 1rem;
+}
+
+.site-footer p {
+  margin: 0.2rem 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 800px) {
+  .intro-grid,
+  .services-grid,
+  .schedule-card,
+  .doctor-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    padding: 1rem 1rem;
+  }
+
+  .nav-links {
+    gap: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .site-footer {
+    padding: 2.2rem 1rem 2.6rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 6rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .site-header {
+    justify-content: space-between;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .brand {
+    gap: 0.55rem;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .brand-mark {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}

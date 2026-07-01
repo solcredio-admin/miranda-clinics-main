@@ -1,0 +1,6 @@
+services:
+  miranda-clinics:
+    build: .
+    container_name: miranda-clinics
+    ports:
+      - "8080:80"
