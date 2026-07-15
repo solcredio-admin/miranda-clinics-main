@@ -174,11 +174,25 @@ main {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
 }
 
-.intro-grid,
-.services-grid {
+.section-copy {
+  max-width: 680px;
+  margin: 0.8rem auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.intro-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -196,6 +210,84 @@ main {
 .service-card h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+.doctor-service-card {
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(31, 95, 120, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), var(--primary));
+}
+
+.doctor-service-card--pediatrics::before {
+  background: linear-gradient(180deg, #7bc9eb, #2d7a97);
+}
+
+.doctor-service-card--adult::before {
+  background: linear-gradient(180deg, #2f7f9a, #133f54);
+}
+
+.doctor-service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.doctor-label {
+  margin: 0 0 0.3rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.doctor-badge {
+  background: rgba(87, 184, 216, 0.14);
+  color: var(--primary-dark);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.service-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.9rem;
+  background: #f3f9fc;
+  color: var(--text);
+}
+
+.service-list li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 800;
+  margin-top: 0.08rem;
 }
 
 .schedule {
@@ -239,12 +331,14 @@ main {
   padding: 1.5rem;
   box-shadow: var(--shadow);
   text-align: center;
+  display: grid;
+  gap: 0.6rem;
 }
 
 .doctor-role {
   color: var(--accent);
   font-weight: 700;
-  margin: 0.25rem 0 0.5rem;
+  margin: 0;
 }
 
 .doctor-hours {
@@ -254,12 +348,16 @@ main {
   margin: 0;
 }
 
+.doctor-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .site-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
   gap: 2rem;
-  flex-wrap: wrap;
   padding: 3rem 1.5rem 3.5rem;
   background: linear-gradient(135deg, #0f2d3d, #163b4e);
   color: rgba(255, 255, 255, 0.92);
@@ -269,19 +367,23 @@ main {
 }
 
 .site-footer > div {
-  flex: 1 1 220px;
-  min-width: 220px;
+  min-width: 0;
 }
 
-.site-footer h3 {
+.footer-brand h3,
+.footer-contact h3 {
   margin-top: 0;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.6rem;
   font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.site-footer p {
-  margin: 0.2rem 0;
-  color: rgba(255, 255, 255, 0.78);
+.footer-brand p,
+.footer-contact p {
+  margin: 0.25rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 320px;
 }
 
 @media (max-width: 800px) {
@@ -290,6 +392,10 @@ main {
   .schedule-card,
   .doctor-schedule-grid {
     grid-template-columns: 1fr;
+  }
+
+  .doctor-service-header {
+    flex-direction: column;
   }
 
   .site-header {
@@ -311,6 +417,7 @@ main {
 
   .site-footer {
     padding: 2.2rem 1rem 2.6rem;
+    grid-template-columns: 1fr;
   }
 }
 
